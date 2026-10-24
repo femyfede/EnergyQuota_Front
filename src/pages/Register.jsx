@@ -22,7 +22,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    if (form.password.length < 6) return setError(t('register.pwdMin'));
+    if (form.password.length < 8) return setError(t('register.pwdMin'));
     if (form.password !== form.confirm) return setError(t('register.pwdMismatch'));
 
     setLoading(true);

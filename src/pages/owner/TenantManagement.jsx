@@ -75,7 +75,8 @@ const AddTenantModal = ({ onClose, onAdd, t }) => {
               </div>
               <div className="col-span-2">
                 <label className="form-label">{t('tenantMgmt.password')}</label>
-                <input type="password" value={form.password} onChange={set('password')} className="input-field" placeholder="••••••••" required />
+                <input type="password" value={form.password} onChange={set('password')} className="input-field" placeholder="••••••••" required minLength={8} autoComplete="new-password" />
+                <p className="text-xs text-slate-400 mt-1">At least 8 characters</p>
               </div>
               <div>
                 <label className="form-label">{t('tenantMgmt.phone')}</label>
@@ -249,7 +250,7 @@ const TenantManagement = () => {
                     onClick={() => deleteTenant(tenant.id, name)}
                     className="absolute top-3 right-3 p-1.5 text-slate-300 dark:text-slate-600
                       hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20
-                      rounded-lg transition-all duration-200 opacity-0 group-hover:opacity-100 hover:scale-110"
+                      rounded-lg transition-all duration-200 sm:opacity-0 sm:group-hover:opacity-100 focus:opacity-100 hover:scale-110"
                     title="Remove tenant"
                   >
                     <MdDelete size={16} />
@@ -259,7 +260,7 @@ const TenantManagement = () => {
                     <div className={`w-11 h-11 rounded-2xl ${colorCls} flex items-center justify-center font-bold text-sm flex-shrink-0`}>
                       {initials}
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 pr-8">
                       <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{name}</p>
                       <p className="text-xs text-slate-400 dark:text-slate-500 truncate">{tenant.user?.email}</p>
                     </div>

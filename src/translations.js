@@ -233,7 +233,7 @@ const T = {
     'register.successTitle': 'Request Submitted!',
     'register.successMsg': "Your owner account is pending admin review. You'll receive access once approved.",
     'register.backToLogin': 'Back to Login',
-    'register.pwdMin': 'Password must be at least 6 characters',
+    'register.pwdMin': 'Password must be at least 8 characters',
     'register.pwdMismatch': 'Passwords do not match',
 
     'theme.light': 'Light',
@@ -491,7 +491,7 @@ const T = {
     'register.successTitle': 'Ombi Limetumwa!',
     'register.successMsg': 'Akaunti yako ya mwenye nyumba inasubiri ukaguzi wa msimamizi. Utapata ufikiaji baada ya kuidhibitiwa.',
     'register.backToLogin': 'Rudi Kuingia',
-    'register.pwdMin': 'Neno la siri lazima liwe na herufi 6 au zaidi',
+    'register.pwdMin': 'Neno la siri lazima liwe na herufi 8 au zaidi',
     'register.pwdMismatch': 'Maneno ya siri hayalingani',
 
     'theme.light': 'Mwanga',
@@ -749,7 +749,7 @@ const T = {
     'register.successTitle': 'Demande soumise!',
     'register.successMsg': "Votre compte propriétaire est en attente d'examen par l'administrateur. Vous recevrez l'accès une fois approuvé.",
     'register.backToLogin': 'Retour à la connexion',
-    'register.pwdMin': 'Le mot de passe doit comporter au moins 6 caractères',
+    'register.pwdMin': 'Le mot de passe doit comporter au moins 8 caractères',
     'register.pwdMismatch': 'Les mots de passe ne correspondent pas',
 
     'theme.light': 'Clair',
@@ -1007,7 +1007,7 @@ const T = {
     'register.successTitle': '申请已提交！',
     'register.successMsg': '您的房东账户正在等待管理员审核，批准后您将获得访问权限。',
     'register.backToLogin': '返回登录',
-    'register.pwdMin': '密码至少需要6个字符',
+    'register.pwdMin': '密码至少需要8个字符',
     'register.pwdMismatch': '两次输入的密码不一致',
 
     'theme.light': '浅色',
