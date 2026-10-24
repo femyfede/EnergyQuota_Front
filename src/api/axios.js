@@ -18,7 +18,17 @@ api.interceptors.request.use((config) => {
 });
 
 api.interceptors.response.use(
-  (res) => res,
+  (res) => {
+    // If the server sends back an HTML page (e.g. backend down or suspended) instead of JSON,
+    // treat it as an error so pages show a message instead of crashing on bad data.
+    const type = res.headers?.['content-type'] || '';
+    if (typeof res.data === 'string' && !type.includes('application/json')) {
+      const err = new Error('Server unavailable');
+      err.response = { status: 503, data: { message: 'Server is unavailable right now. Please try again later.' } };
+      return Promise.reject(err);
+    }
+    return res;
+  },
   (err) => {
     if (err.response?.status === 401) {
       localStorage.removeItem('token');

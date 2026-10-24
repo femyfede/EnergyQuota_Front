@@ -56,8 +56,8 @@ const TenantDashboard = () => {
         api.get('/tenant/me'),
         api.get('/tenant/meter-requests'),
       ]);
-      setInfo(infoRes.data);
-      setRequests(reqRes.data);
+      setInfo(infoRes.data && typeof infoRes.data === 'object' ? infoRes.data : null);
+      setRequests(Array.isArray(reqRes.data) ? reqRes.data : []);
     } catch {
       showToast('Failed to load data', 'error');
     } finally {
