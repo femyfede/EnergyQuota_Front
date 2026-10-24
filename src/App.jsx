@@ -1,3 +1,4 @@
+// v1.1.0 - Updated with Render backend integration
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { SocketProvider } from './context/SocketContext';
