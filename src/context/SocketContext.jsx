@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import { API_URL } from '../api/axios';
 
 const SocketContext = createContext(null);
 const MAX_RECONNECT_ATTEMPTS = 5;
@@ -19,7 +20,7 @@ export const SocketProvider = ({ children }) => {
       return;
     }
 
-    const s = io(import.meta.env.VITE_API_URL || '/', {
+    const s = io(API_URL, {
       transports: ['websocket', 'polling'],
       path: '/socket.io',
       autoConnect: true,
