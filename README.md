@@ -16,7 +16,7 @@ cp .env.example .env   # set VITE_API_URL to your backend
 npm run dev            # http://localhost:5173
 ```
 
-`VITE_API_URL` is the backend address with no trailing slash, e.g. `https://energyquota-f3vf.onrender.com`. If it is not set, production builds use that Render URL and local dev uses `http://localhost:5000`.
+`VITE_API_URL` is the backend address with no trailing slash, e.g. `https://energyquota-1.onrender.com`. If it is not set, production builds use that Render URL and local dev uses `http://localhost:5000`.
 
 ## Deploy (Vercel)
 

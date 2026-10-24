@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const API_URL =
   import.meta.env.VITE_API_URL ||
-  (import.meta.env.PROD ? 'https://energyquota-f3vf.onrender.com' : 'http://localhost:5000');
+  (import.meta.env.PROD ? 'https://energyquota-1.onrender.com' : 'http://localhost:5000');
 
 const baseURL = `${API_URL}/api`;
 

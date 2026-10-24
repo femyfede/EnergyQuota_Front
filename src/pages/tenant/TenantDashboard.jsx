@@ -46,7 +46,7 @@ const TenantDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState(null);
-  const socket = useSocket();
+  const { socket } = useSocket();
 
   const showToast = (message, type = 'success') => setToast({ message, type });
 
