@@ -40,10 +40,11 @@ const ViewOwnerModal = ({ owner, onClose, onUpdate, t }) => {
     const fetchMeters = async () => {
       try {
         const { data } = await api.get('/admin/meter-requests');
-        const ownerMeters = data.filter(m => m.ownerId === owner.id && m.status === 'approved');
+        const ownerMeters = data.filter(m => m.ownerId === owner.id && (m.status === 'approved' || m.status === 'APPROVED'));
         setAssignedMeters(ownerMeters);
+        console.log(`Loaded ${ownerMeters.length} meters for owner ${owner.id}`);
       } catch (err) {
-        console.error('Failed to load metrics:', err);
+        console.error('Failed to load meters:', err);
       } finally {
         setLoadingMeters(false);
       }
