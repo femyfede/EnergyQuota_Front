@@ -89,7 +89,7 @@ const Register = () => {
   }
 
   const fields = [
-    { label: t('register.fullName'),    key: 'name',    type: 'text',     icon: MdPerson, placeholder: 'John Doe' },
+    { label: t('register.fullName'),    key: 'name',    type: 'text',     icon: MdPerson, placeholder: '' },
     { label: t('register.email'),       key: 'email',   type: 'email',    icon: MdEmail,  placeholder: 'you@example.com' },
     { label: t('register.password'),    key: 'password',type: 'password', icon: MdLock,   placeholder: '••••••••' },
     { label: t('register.confirm'),     key: 'confirm', type: 'password', icon: MdLock,   placeholder: '••••••••' },
