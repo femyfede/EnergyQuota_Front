@@ -5,9 +5,10 @@ import api from '../../api/axios';
 import { MdElectricalServices, MdPause, MdPlayArrow, MdFilterList, MdAdd, MdClose, MdDelete } from 'react-icons/md';
 
 const statusClass = (status) => {
-  if (status === 'approved') return 'badge-approved';
-  if (status === 'pending') return 'badge-pending';
-  if (status === 'suspended') return 'badge-suspended';
+  const s = String(status || '').toLowerCase();
+  if (s === 'approved') return 'badge-approved';
+  if (s === 'pending') return 'badge-pending';
+  if (s === 'suspended') return 'badge-suspended';
   return 'badge-rejected';
 };
 
@@ -98,10 +99,11 @@ const AdminMeters = () => {
   };
 
   const filtered = requests.filter((r) => {
+    const status = String(r.status || '').toLowerCase();
     if (filter === 'all') return true;
-    if (filter === 'assigned') return r.status === 'approved';
-    if (filter === 'unassigned') return r.status === 'pending' || r.status === 'rejected';
-    if (filter === 'suspended') return r.status === 'suspended';
+    if (filter === 'assigned') return status === 'approved';
+    if (filter === 'unassigned') return status === 'pending' || status === 'rejected';
+    if (filter === 'suspended') return status === 'suspended';
     return true;
   });
 
@@ -115,15 +117,15 @@ const AdminMeters = () => {
         </div>
         <div className="stat-card !p-4">
           <p className="metric-label">Assigned</p>
-          <p className="metric-value">{requests.filter(r => r.status === 'approved').length}</p>
+          <p className="metric-value">{requests.filter(r => String(r.status || '').toLowerCase() === 'approved').length}</p>
         </div>
         <div className="stat-card !p-4">
           <p className="metric-label">Unassigned</p>
-          <p className="metric-value">{requests.filter(r => r.status === 'pending' || r.status === 'rejected').length}</p>
+          <p className="metric-value">{requests.filter(r => {const s = String(r.status || '').toLowerCase(); return s === 'pending' || s === 'rejected'}).length}</p>
         </div>
         <div className="stat-card !p-4">
           <p className="metric-label">Suspended</p>
-          <p className="metric-value">{requests.filter(r => r.status === 'suspended').length}</p>
+          <p className="metric-value">{requests.filter(r => String(r.status || '').toLowerCase() === 'suspended').length}</p>
         </div>
       </div>
       <div className="card">
@@ -187,17 +189,17 @@ const AdminMeters = () => {
                       </td>
                       <td className="table-cell">
                         <div className="flex gap-2">
-                          {req.status === 'approved' && !isOwnerSuspended && (
+                          {String(req.status || '').toLowerCase() === 'approved' && !isOwnerSuspended && (
                             <button onClick={() => suspend(req.id)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-500 hover:bg-amber-600 text-white">
                               <MdPause size={13} /> Suspend
                             </button>
                           )}
-                          {req.status === 'approved' && isOwnerSuspended && (
+                          {String(req.status || '').toLowerCase() === 'approved' && isOwnerSuspended && (
                             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-300 dark:bg-slate-600 text-slate-700 dark:text-slate-300 cursor-not-allowed">
                               <MdPause size={13} /> Owner Suspended
                             </span>
                           )}
-                          {req.status === 'suspended' && (
+                          {String(req.status || '').toLowerCase() === 'suspended' && (
                             <button onClick={() => reactivate(req.id)} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 hover:bg-emerald-600 text-white">
                               <MdPlayArrow size={13} /> Reactivate
                             </button>
