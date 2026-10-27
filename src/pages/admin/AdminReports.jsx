@@ -285,7 +285,7 @@ const AdminReports = () => {
             </thead>
             <tbody>
               {owners.map((o, i) => (
-                <tr key={oid} className="table-row">
+                <tr key={o.id || i} className="table-row">
                   <td className="table-cell text-slate-300 dark:text-slate-600">{i + 1}</td>
                   <td className="table-cell py-3.5">
                     <div className="flex items-center gap-2.5">
